@@ -1,296 +1,239 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 :root {
-    --primaria: #040407;
-    --secundaria: #1da30b;
-    --textoColor: white;
+    --primaria: #00d9ff;
+    --fundo: #06000c;
 }
+
+body {
+    background-color: var(--fundo);
+    color: white;
+}
+
+
 .app {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background-color: var(--primaria);
+    
+    display: flex;
+    flex-direction: column;
+    background-color: #0000003a;
+
+    
+    
+}
+
+header {
     display: flex;
     justify-content: space-between;
-}
+    align-items: center;
 
-.menu_lateral {
-    width: 53px;
-    border-right: 1px solid var(--secundaria);
-    overflow: hidden;
-    transition: .5s;
-    
+    min-height: 60px;
+    padding: 0 20px;
 
 }
-.menu_lateral:hover {
-    width: 150px;
+
+header .gtihub {
+    text-decoration: none;
+    color: white;
+   font-size: 30px;
 }
 
 .menu {
     display: flex;
-    flex-direction: column;
-    height: 100vh;
-    margin-top: 100px;
-    gap: 10px;
+    align-items: center;
+    gap: 20px;
+
+
 }
 
 .menu a {
-    display: flex;
-    gap: 10px;
     text-decoration: none;
-    color: var(--secundaria);
-    align-items: center;
-    padding: 10px;
-    transition: all .5s;
-    border-radius: 20px 0 0 20px;
-
-}
-.menu a span {
-    font-weight: bold;
+    color: var(--primaria);
 }
 
-.menu a:hover, .menu a.ative {
-    background-color: var(--secundaria);
-    color: #0a2507;
-    
-}
-
-
-
-.menu a i {
-    font-size: 32px;
-}
-
-
-
-.contente {
+main {
     flex: 1;
+    overflow: hidden;
+    overflow-y: auto;
+
     display: flex;
     flex-direction: column;
-    padding: 0 20px;
+    gap: 20px;
+
+    padding: 20px;
+    scroll-behavior: smooth;
 }
-    
-.contente header {
-    min-height: 70px;
-    border-bottom: 1px solid var(--secundaria);
+
+main::-webkit-scrollbar{width: 0;}
+
+.content {
+    flex: 1;
+    min-height: 100%;
+    background-color: transparent;
+    border-radius: 10px;
+
+}
+
+.content#home {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-header .title {
-    color: var(--secundaria);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-header .title i {
-    font-size: 30px;
-}
-
-main {
-    flex: 1;
-    overflow-y: auto;
-    padding: 10px;
-    scroll-behavior: smooth;
-    
-}
-
-main::-webkit-scrollbar {
-    width: 0;
-}
-
-main section {
-    width: 100%;
-    height: 100%;
-    border: 1px solid transparent;
-    margin-bottom: 20px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    position: relative;
-}
-
-section#home {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    color: var(--secundaria);
-    gap: 20px;
-}
-
-section#home .infos {
+.content#home .text {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 500px;
+    padding-left: 50px;
 }
 
-section#home .infos p {
-    font-size: 17px;
-    color: var(--textoColor);
+.content#home .text .text_min {
+    font-size: 18px;
+    font-weight: normal;
 }
 
-section#home .infos p strong {
-    color: var(--secundaria);
+
+
+.content#home .text  p {
+    font-size: 70px;
+    font-weight: bold;
 }
 
-section .img {
+.content#home .text  p span{
+    color: var(--primaria);
+}
+.content#home .text a {
+    text-decoration: none;
+    max-width: 200px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    border-radius: 10px;
+    background-color: var(--primaria);
+    color: var(--fundo);
+    font-weight: bold;
+
+    margin-top: 20px;
+}
+
+/* sobre */
+.content#projets {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    overflow-x: auto;
+    gap: 20px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
     
-    max-height: 400px;
-    max-width: 400px;
-    height: 80%;
-    width: 50%;
-
-    min-width: 200px;
-    min-height: 200px;
-
-
-    background-color: var(--secundaria);
-    transform: rotate(100deg);
-    margin-right: 100px;
-    border-radius: 20px;
-    animation: animar 2s linear infinite;
-    position: relative;
 }
 
-section img.user-right {
-    position: absolute;
-    top: 10px;
-    right: 230px;
-    width: 25%;
+.content#projets::-webkit-scrollbar {
+    width: 10px;
+}
+.content#projets::-webkit-scrollbar-thumb {
+    background-color: var(--primaria);
+    border-radius: 10px;
+    
 }
 
-section img.user-left {
-    position: absolute;
-    top: 10px;
-    left: 230px;
-    width: 25%;
+
+.content#projets .card {
+    background-color: white;
+    min-width: 250px;
+    max-width: 250px;
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    color: black;
+    margin-top: 20px;
 }
 
-@keyframes animar {
-    0%{
-        transform: rotate(100deg);
-    }
-    50%{
-        transform: rotate(110deg);
-    }
-    100%{
-        transform: rotate(100deg);
-    }
-}
-
-.center {
+.content#projets .card span {
     text-align: center;
-}
-.p {
-    width: 400px;
-}
+    margin: 10px;
+    font-weight: bold;
 
-section.project {
-    display: flex;
-    flex-direction: column;
-    
-    
+
+    font-size: 20px;
 }
-section.project h2 {
-    width: 100%;
-    padding-left: 37px;
-    padding-bottom: 10px;
-}
-section.project .lista {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: center;
+.content#projets .card p {
     flex: 1;
-
-}
-section.project .crad {
-    min-width: 350px;
-    max-width: 350px;
-    max-height: 200px;
-    height: 200px;
-    background-color: var(--textoColor);
-    border-radius: 20px;
-    margin-bottom: 30px;
-    color: #040407;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
+    text-align: center;
+    
+}
+.content#projets .card a {
+    background-color: var(--primaria);
+    color: black;
+    text-decoration: none;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.crad .title {
-    font-weight: bold;
-}
-.crad .desc {
-    font-size: 12px;
-}
-
-section#contatos .lista {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: 20px;
-}
-section#contatos .lista .infos {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    padding: 0 10%;
+    text-align: center;
+
+    padding: 10px;
+    max-width: 80%;
+    margin: auto;
+    
+    margin-bottom: 10px;
 }
 
-section#contatos .lista .redes {
+
+/* sobre */
+
+.content#about {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     gap: 20px;
 }
 
-.lista .contact_card {
-    background-color: white;
-    color: #0a2507;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-}
-
-.redes a {
-    text-decoration: none;
+.content#about p {
+    max-width: 80%;
+    text-align: center;
+    font-size: 18px;
 }
 
 
-.btn_zap {
-    position: absolute;
-    z-index: 9999;
-    color: #1da30b;
-    font-weight: bold;
-    font-size: 30px;
+@media screen and (max-width:600px) {
+    .gtihub {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
 
-    right: 20px;
-    bottom: 20px;
-    text-decoration: none;
-    background-color: white;
-    border-radius: 10px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+        font-size: 100px;
+    }
+    .gtihub i {
+        font-size: 60px;
+    }
+    .content#home .text {
+        padding-left: 10px;
+        
+    }
+    .content#home .text p {
+        font-size: 30px;
+    }
 }
-
